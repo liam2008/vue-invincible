@@ -2,6 +2,7 @@
   <div class="app-wrapper" :class="{hideSidebar:!sidebar.opened}">
     <sidebar class="sidebar-container"></sidebar>
     <div class="main-container">
+      <sidebar class="sidebar-container"></sidebar>
       <navbar></navbar>
       <app-main></app-main>
     </div>

@@ -1,5 +1,9 @@
 <template>
   <scroll-bar>
+    <!--  v-if="sidebar.opened" -->
+      <div  class="subject-title">
+        <h5>智干ERP管理系统</h5>
+      </div>
     <el-menu mode="vertical" unique-opened :default-active="$route.path" :collapse="isCollapse" background-color="#304156" text-color="#fff" active-text-color="#409EFF">
       <sidebar-item :routes="routes"></sidebar-item>
     </el-menu>
@@ -26,3 +30,13 @@ export default {
   }
 }
 </script>
+
+<style rel="stylesheet/scss" lang="scss" scoped>
+.subject-title {
+  text-align: center;
+  color: white;
+  font-size: 18px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+</style>
