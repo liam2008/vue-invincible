@@ -1,7 +1,15 @@
 <template>
   <el-menu class="navbar" mode="horizontal">
     <hamburger class="hamburger-container" :toggleClick="toggleSideBar" :isActive="sidebar.opened"></hamburger>
-    <!--  -->
+    <!-- 父级导航栏 -->
+    <!-- <el-menu-item index="1">处理中心</el-menu-item>
+    <el-submenu index="2">
+      <template slot="title">我的工作台</template>
+      <el-menu-item index="2-1">选项1</el-menu-item>
+      <el-menu-item index="2-2">选项2</el-menu-item>
+      <el-menu-item index="2-3">选项3</el-menu-item>
+    </el-submenu>
+    <el-menu-item index="3"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item> -->
     <el-dropdown class="avatar-container" trigger="click">
       <div class="avatar-wrapper">
         <img class="user-avatar" :src="avatar+'?imageView2/1/w/80/h/80'">
@@ -30,10 +38,7 @@ export default {
     Hamburger
   },
   computed: {
-    ...mapGetters([
-      'sidebar',
-      'avatar'
-    ])
+    ...mapGetters(['sidebar', 'avatar'])
   },
   methods: {
     toggleSideBar() {
@@ -49,15 +54,17 @@ export default {
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
+@import "src/styles/mixin.scss";
 .navbar {
   height: 50px;
-  line-height: 50px;
   border-radius: 0px !important;
   .hamburger-container {
-    line-height: 58px;
+    line-height: 45px;
+    width: 50px;
     height: 50px;
     float: left;
-    padding: 0 10px;
+    padding-top: 8px;
+    padding-left: 13px;
   }
   .screenfull {
     position: absolute;

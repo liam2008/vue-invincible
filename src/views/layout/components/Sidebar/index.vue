@@ -1,9 +1,9 @@
 <template>
   <scroll-bar>
-    <!--  v-if="sidebar.opened" -->
-      <div  class="subject-title">
-        <h5>智干ERP管理系统</h5>
-      </div>
+    <h5 class="subject-title">
+      <span v-if="sidebar.opened">智干ERP管理系统</span>
+      <span v-else>SD</span>
+    </h5>
     <el-menu mode="vertical" unique-opened :default-active="$route.path" :collapse="isCollapse" background-color="#304156" text-color="#fff" active-text-color="#409EFF">
       <sidebar-item :routes="routes"></sidebar-item>
     </el-menu>

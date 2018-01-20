@@ -38,10 +38,10 @@ export default {
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
-  @import "src/styles/mixin.scss";
   .app-breadcrumb.el-breadcrumb {
-    // @include l;
     display: block;
+    background-color:#f3f3f4;
+    border-bottom:1px solid #e6e6e6;
     font-size: 14px;
     line-height: 50px;
     padding-left: 40px;
