@@ -1,28 +1,26 @@
 <template>
   <el-menu class="navbar" mode="horizontal">
     <hamburger class="hamburger-container" :toggleClick="toggleSideBar" :isActive="sidebar.opened"></hamburger>
-    <!-- 父级导航栏 -->
-    <!-- <el-menu-item index="1">处理中心</el-menu-item>
-    <el-submenu index="2">
-      <template slot="title">我的工作台</template>
-      <el-menu-item index="2-1">选项1</el-menu-item>
-      <el-menu-item index="2-2">选项2</el-menu-item>
-      <el-menu-item index="2-3">选项3</el-menu-item>
-    </el-submenu>
-    <el-menu-item index="3"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item> -->
+    <tab-nav></tab-nav>
     <el-dropdown class="avatar-container" trigger="click">
       <div class="avatar-wrapper">
-        <img class="user-avatar" :src="avatar+'?imageView2/1/w/80/h/80'">
+        <span class="user-avatar">
+          伟
+        </span>
+        <span>欢迎您 <b>王伟</b></span>
         <i class="el-icon-caret-bottom"></i>
       </div>
       <el-dropdown-menu class="user-dropdown" slot="dropdown">
-        <router-link class="inlineBlock" to="/">
+        <!-- <router-link class="inlineBlock" to="/">
           <el-dropdown-item>
-            Home
+            主页
           </el-dropdown-item>
-        </router-link>
-        <el-dropdown-item divided>
-          <span @click="logout" style="display:block;">LogOut</span>
+        </router-link> -->
+        <el-dropdown-item>
+          <span @click="resetPsd" style="display:block;">修改密码</span>
+        </el-dropdown-item>
+        <el-dropdown-item >
+          <span @click="logout" style="display:block;">退出</span>
         </el-dropdown-item>
       </el-dropdown-menu>
     </el-dropdown>
@@ -32,10 +30,12 @@
 <script>
 import { mapGetters } from 'vuex'
 import Hamburger from '@/components/Hamburger'
+import tabNav from './tabNav'
 
 export default {
   components: {
-    Hamburger
+    Hamburger,
+    tabNav
   },
   computed: {
     ...mapGetters(['sidebar', 'avatar'])
@@ -48,6 +48,9 @@ export default {
       this.$store.dispatch('LogOut').then(() => {
         location.reload() // 为了重新实例化vue-router对象 避免bug
       })
+    },
+    resetPsd() {
+      console.log('xxx')
     }
   }
 }
@@ -77,20 +80,23 @@ export default {
     display: inline-block;
     position: absolute;
     right: 35px;
+    cursor:pointer;
     .avatar-wrapper {
-      cursor: pointer;
+      display:flex;
+      justify-content: center; 
+      align-items: center;
       margin-top: 5px;
-      position: relative;
       .user-avatar {
+        display:inline-block;
+        background-color:#64d9d6;
+        color:white;
+        text-align:center;
+        line-height: 40px;
+        font-size:22px;
         width: 40px;
         height: 40px;
-        border-radius: 10px;
-      }
-      .el-icon-caret-bottom {
-        position: absolute;
-        right: -20px;
-        top: 25px;
-        font-size: 12px;
+        border-radius: 50%;
+        margin-right: 10px;
       }
     }
   }

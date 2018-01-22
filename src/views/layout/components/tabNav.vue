@@ -1,0 +1,50 @@
+ <!-- 父级导航栏 -->
+<template>
+  <div class="tab-nav-container">
+  <el-menu
+    :default-active="activeSubject"
+    class="el-menu-demo"
+    mode="horizontal"
+    @select="toggleSubject">
+    <el-menu-item index="1">tab-nav1</el-menu-item>
+    <el-menu-item index="2">tab-nav2</el-menu-item>
+    <el-menu-item index="3">tab-nav3</el-menu-item>
+  </el-menu>
+  </div>
+</template>
+
+<script>
+/* import { mapGetters } from 'vuex' */
+
+export default {
+  /* computed: {
+    ...mapGetters(['sidebar', 'avatar'])
+  }, */
+  data() {
+    return {
+      activeSubject: '1'
+    }
+  },
+  methods: {
+    toggleSubject(key, keyPath) {
+      console.log(key, keyPath)
+    }
+  }
+}
+</script>
+
+<style rel="stylesheet/scss" lang="scss">
+.tab-nav-container {
+  float: left;
+  margin-left: 20px;
+  .el-menu-item,
+  .el-submenu .el-submenu__title {
+    height: 49px;
+    line-height: 49px;
+  }
+  .el-menu--horizontal{
+    border-bottom: none;
+  }
+}
+</style>
+
