@@ -11,11 +11,6 @@
         <i class="el-icon-caret-bottom"></i>
       </div>
       <el-dropdown-menu class="user-dropdown" slot="dropdown">
-        <!-- <router-link class="inlineBlock" to="/">
-          <el-dropdown-item>
-            主页
-          </el-dropdown-item>
-        </router-link> -->
         <el-dropdown-item>
           <span @click="resetPsd" style="display:block;">修改密码</span>
         </el-dropdown-item>

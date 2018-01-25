@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+const _import = require('./_import_' + process.env.NODE_ENV)
 
 // in development-env not use lazy-loading, because lazy-loading too many pages will cause webpack hot update too slow. so only in production use lazy-loading;
 // detail: https://panjiachen.github.io/vue-element-admin-site/#/lazy-loading
@@ -19,8 +20,10 @@ import Layout from '../views/layout/Layout'
   }
 **/
 export const constantRouterMap = [
-  { path: '/login', component: () => import('@/views/login/index'), hidden: true },
-  { path: '/404', component: () => import('@/views/404'), hidden: true },
+  { path: '/login', component: _import('login/index'), hidden: true },
+  { path: '/authredirect', component: _import('login/authredirect'), hidden: true },
+  { path: '/404', component: _import('errorPage/404'), hidden: true },
+  { path: '/401', component: _import('errorPage/401'), hidden: true },
 
   {
     path: '/',
@@ -30,7 +33,7 @@ export const constantRouterMap = [
     hidden: true,
     children: [{
       path: 'dashboard',
-      component: () => import('@/views/dashboard/index')
+      component: _import('dashboard/index')
     }]
   },
 
@@ -44,13 +47,13 @@ export const constantRouterMap = [
       {
         path: 'table',
         name: 'Table',
-        component: () => import('@/views/table/index'),
+        component: _import('table/index'),
         meta: { title: 'Table', icon: 'table' }
       },
       {
         path: 'tree',
         name: 'Tree',
-        component: () => import('@/views/tree/index'),
+        component: _import('tree/index'),
         meta: { title: 'Tree', icon: 'tree' }
       }
     ]
@@ -63,7 +66,7 @@ export const constantRouterMap = [
       {
         path: 'index',
         name: 'Form',
-        component: () => import('@/views/form/index'),
+        component: _import('form/index'),
         meta: { title: 'Form', icon: 'form' }
       }
     ]

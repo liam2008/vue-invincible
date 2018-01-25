@@ -5,6 +5,7 @@
       <!-- <router-view :key="key"></router-view> -->
       <router-view></router-view>
     </transition>
+    <slot name="sideBar"></slot>
   </section>
 </template>
 

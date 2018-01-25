@@ -14,17 +14,23 @@
 </template>
 
 <script>
-/* import { mapGetters } from 'vuex' */
-
+/* import { Sidebar } from '@/views/layout/components'
+console.log('Sidebar2', Sidebar)
+ */
 export default {
-  /* computed: {
-    ...mapGetters(['sidebar', 'avatar'])
+  /*  computed: {
+    sidebar() {
+      return this.$store.state.app.sidebar
+    }
   }, */
   data() {
     return {
       activeSubject: '1'
     }
   },
+  /* components: {
+    Sidebar
+  }, */
   methods: {
     toggleSubject(key, keyPath) {
       console.log(key, keyPath)

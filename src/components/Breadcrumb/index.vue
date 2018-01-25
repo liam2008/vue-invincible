@@ -43,7 +43,7 @@ export default {
     background-color:#f3f3f4;
     border-bottom:1px solid #e6e6e6;
     font-size: 14px;
-    line-height: 50px;
+    line-height: 40px;
     padding-left: 40px;
     .no-redirect {
       color: #97a8be;
