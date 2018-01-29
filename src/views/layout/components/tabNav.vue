@@ -6,9 +6,8 @@
     class="el-menu-demo"
     mode="horizontal"
     @select="toggleSubject">
-    <el-menu-item index="1">tab-nav1</el-menu-item>
-    <el-menu-item index="2">tab-nav2</el-menu-item>
-    <el-menu-item index="3">tab-nav3</el-menu-item>
+    <el-menu-item index="1">首页</el-menu-item>
+    <el-menu-item index="2">人事管理</el-menu-item>
   </el-menu>
   </div>
 </template>

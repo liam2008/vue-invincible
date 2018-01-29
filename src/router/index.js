@@ -37,7 +37,7 @@ export const constantRouterMap = [
     }]
   },
 
-  {
+  /* {
     path: '/example',
     component: Layout,
     redirect: '/example/table',
@@ -47,13 +47,13 @@ export const constantRouterMap = [
       {
         path: 'table',
         name: 'Table',
-        component: _import('table/index'),
+        component: _import('home/table/index'),
         meta: { title: 'Table', icon: 'table' }
       },
       {
         path: 'tree',
         name: 'Tree',
-        component: _import('tree/index'),
+        component: _import('home/tree/index'),
         meta: { title: 'Tree', icon: 'tree' }
       }
     ]
@@ -66,13 +66,61 @@ export const constantRouterMap = [
       {
         path: 'index',
         name: 'Form',
-        component: _import('form/index'),
+        component: _import('home/form/index'),
         meta: { title: 'Form', icon: 'form' }
       }
     ]
-  },
+  }, */
 
-  { path: '*', redirect: '/404', hidden: true }
+  {
+    path: '/personManage',
+    component: Layout,
+    name: 'PersonManage',
+    meta: { title: '人事管理', icon: 'geren' },
+    redirect: 'personManage/department',
+    children: [
+      {
+        path: 'department',
+        name: 'Department',
+        component: _import('personManage/department/index'),
+        meta: { title: '部门管理', icon: 'tipsdepartmentup' },
+        children: [
+          {
+            path: 'department/add',
+            name: 'departmentAdd',
+            hidden: true,
+            component: _import('personManage/department/add')
+          },
+          {
+            path: 'department/edit',
+            name: 'departmentEdit',
+            hidden: true,
+            component: _import('personManage/department/edit')
+          },
+          {
+            path: 'department/delete',
+            name: 'departmentDelete',
+            hidden: true,
+            component: _import('personManage/department/delete')
+          }
+        ]
+      },
+      {
+        path: 'post',
+        name: 'Post',
+        component: _import('personManage/post/index'),
+        meta: { title: '岗位管理', icon: 'post' }
+      },
+      {
+        path: 'personnel',
+        name: 'Personnel',
+        component: _import('personManage/personnel/index'),
+        meta: { title: '人员管理', icon: 'user' }
+      }
+    ]
+  }
+
+  // { path: '*', redirect: '/404', hidden: true }
 ]
 
 export default new Router({
