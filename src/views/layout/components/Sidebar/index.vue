@@ -14,6 +14,7 @@
 import { mapGetters } from 'vuex'
 import SidebarItem from './SidebarItem'
 import ScrollBar from '@/components/ScrollBar'
+import { formatRouter } from '@/utils/formatRouter'
 
 export default {
   components: { SidebarItem, ScrollBar },
@@ -22,7 +23,7 @@ export default {
       'sidebar'
     ]),
     routes() {
-      return this.$router.options.routes
+      return formatRouter(this.$router.options.routes)
     },
     isCollapse() {
       return !this.sidebar.opened

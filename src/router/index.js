@@ -72,34 +72,43 @@ export const constantRouterMap = [
     ]
   }, */
 
+  // 路由和侧边栏关联
   {
     path: '/personManage',
     component: Layout,
     name: 'PersonManage',
     meta: { title: '人事管理', icon: 'geren' },
-    redirect: 'personManage/department',
+    redirect: 'department',
     children: [
       {
         path: 'department',
-        name: 'Department',
-        component: _import('personManage/department/index'),
-        meta: { title: '部门管理', icon: 'tipsdepartmentup' },
+        component: _import('personManage/department/layout'),
         children: [
           {
-            path: 'department/add',
+            path: 'index',
+            name: 'Department',
+            component: _import('personManage/department/index'),
+            meta: { title: '部门管理', icon: 'tipsdepartmentup' }
+          },
+          // 人事管理
+          {
+            path: 'add',
             name: 'departmentAdd',
+            noredirect: true,
             hidden: true,
             component: _import('personManage/department/add')
           },
           {
-            path: 'department/edit',
+            path: 'edit',
             name: 'departmentEdit',
+            noredirect: true,
             hidden: true,
             component: _import('personManage/department/edit')
           },
           {
-            path: 'department/delete',
+            path: 'delete',
             name: 'departmentDelete',
+            noredirect: true,
             hidden: true,
             component: _import('personManage/department/delete')
           }
@@ -119,7 +128,6 @@ export const constantRouterMap = [
       }
     ]
   }
-
   // { path: '*', redirect: '/404', hidden: true }
 ]
 

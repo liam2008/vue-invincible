@@ -17,7 +17,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style rel="stylesheet/scss" lang="scss" scoped>
 .center {
   text-align: center;
 }

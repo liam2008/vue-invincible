@@ -21,10 +21,10 @@ export default {
   },
   methods: {
     addAction() {
-      this.$router.push({ path: "/xxx" })
+      this.$router.push({ path: '/edit' })
     }
   }
-};
+}
 </script>
 
 <style scoped>
